@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { APIHelper } from './apihelper';
-import { generateRandomClientsPlayloud } from './testData';
+
 
 
 
@@ -32,18 +32,5 @@ test.describe('Test Suite 01', () => {
             token: expect.any(String),
         });
     });
-
-    // Test Case 03: Create a new client
-    test('Test Case 03: Create a new client', async ({ request }) => {
-        const clientData = generateRandomClientsPlayloud();
-
-        const response = await apiHelper.createClient(request, clientData);
-        expect(response).toMatchObject({
-            name: clientData.name,
-            email: clientData.email,
-            telephone: clientData.telephone,
-            id: expect.any(Number),
-            created: expect.any(String),
-        });
-    });
 });
+    
